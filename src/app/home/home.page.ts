@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage {
 
+  result = 0;
+
   constructor(private http:HttpClient) {}
 
   async calculate(a,b) {
@@ -18,8 +20,10 @@ export class HomePage {
 
     let url = "https://nextflow-node-calculator-api.azurewebsites.net/calculator/plus";
 
-    let response = await this.http.post(url, { "first" : first, "second": second }).toPromise();
+    let response = await<any> this.http.post(url, { "first" : first, "second": second }).toPromise();
     console.log(response);
+
+    this.result = response.result;
   }
 
 }
