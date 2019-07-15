@@ -10,10 +10,12 @@ export class HomePage {
 
   constructor(private http:HttpClient) {}
 
-  calculate(a,b){
+  async calculate(a,b) {
     console.log('ตัวตั้ง', a, 'ตัวบวก', b);
 
     let url = "https://nextflow-node-calculator-api.azurewebsites.net/calculator/plus";
+
+    let response = await this.http.post(url, {}).toPromise();
   }
 
 }
