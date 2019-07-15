@@ -13,9 +13,13 @@ export class HomePage {
   async calculate(a,b) {
     console.log('ตัวตั้ง', a, 'ตัวบวก', b);
 
+    let first = parseInt(a);
+    let second = parseInt(b);
+
     let url = "https://nextflow-node-calculator-api.azurewebsites.net/calculator/plus";
 
-    let response = await this.http.post(url, {}).toPromise();
+    let response = await this.http.post(url, { "first" : first, "second": second }).toPromise();
+    console.log(response);
   }
 
 }
