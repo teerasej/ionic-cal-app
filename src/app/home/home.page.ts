@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
+
+  calculate(a,b){
+    console.log('ตัวตั้ง', a, 'ตัวบวก', b);
+  }
 
 }
